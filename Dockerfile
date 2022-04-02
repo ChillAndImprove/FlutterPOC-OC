@@ -31,8 +31,8 @@ FROM registry.access.redhat.com/ubi8/nginx-120
 
 COPY --from=build-env /app/build/web .
 
-ADD nginx/nginx.conf "${NGINX_CONF_PATH}"
-ADD nginx/nginx-cfg/*.conf "${NGINX_CONFIGURATION_PATH}"
+ADD nginx.conf "${NGINX_CONF_PATH}"
+ADD nginx-cfg/*.conf "${NGINX_CONFIGURATION_PATH}"
 RUN ls .
 
 CMD ["nginx", "-g", "daemon off;"]
